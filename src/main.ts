@@ -1,22 +1,15 @@
-// import { invoke } from "@tauri-apps/api/core";
+// Import core styles
+import './styles.css';
 
-// let greetInputEl: HTMLInputElement | null;
-// let greetMsgEl: HTMLElement | null;
+// Import HTMX (for future use or htmx enabled interactions)
+import 'htmx.org';
 
-// async function greet() {
-//   if (greetMsgEl && greetInputEl) {
-//     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-//     greetMsgEl.textContent = await invoke("greet", {
-//       name: greetInputEl.value,
-//     });
-//   }
-// }
+// Import App Logic
+import { AppController } from './app';
 
 window.addEventListener("DOMContentLoaded", () => {
-  // greetInputEl = document.querySelector("#greet-input");
-  // greetMsgEl = document.querySelector("#greet-msg");
-  // document.querySelector("#greet-form")?.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   greet();
-  // });
+    // Initialize the application controller
+    // We attach it to the window object so that inline onclick handlers in HTML continue to work
+    window.app = new AppController();
+    window.app.init();
 });
